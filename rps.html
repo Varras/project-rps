@@ -8,22 +8,37 @@
 </head>
 <body>
 <button>
-Are you ready to play Rock, Paper, Scissors?
+Click here to play Rock, Paper, Scissors!
    <script>
+   	
+
+   
 		const button = document.querySelector('button');
 		button.onclick = function game() {
-  	let playerSelection = prompt('What do you choose: Paper, Rock, or Scissors?');
-  	}
     
-    let possibleMoves = ["Rock", "Paper", "Scissors"];
+  
+    
+    
+  	let playerSelection = prompt('What do you choose: Rock, Paper, or Scissors?');
+    playerSelection.toUpperCase();
+  	
+    let possibleMoves = ["ROCK", "PAPER", "SCISSORS"];
+   
         
     function computerPlay() {
          return possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
         }  
-    
     let computerSelection = computerPlay();
-    
         
+    if((playerSelection == "ROCK" && computerSelection == "SCISSORS") || (playerSelection == "PAPER" && computerSelection == "ROCK") || (playerSelection == "SCISSORS" && computerSelection == "PAPER")) {
+    alert(playerSelection + ' beats ' + computerSelection + ', you Win!');
+    }  else if((playerSelection == "ROCK" && computerSelection == "PAPER") || (playerSelection == "PAPER" && computerSelection == "SCISSORS") || (playerSelection == "SCISSORS" && computerSelection == "ROCK")) {
+    alert('Sorry,' + playerSelection + ' does not beat ' + computerSelection + ', you Lose');
+    } else {
+    alert('You chose ' + playerSelection + ' and the computer chose ' + computerSelection + ', it\'s a tie. Try again!');
+    }   
+     
+    }    
       /*let playerScore = 0;
         let computerScore = 0;
         function game() {
