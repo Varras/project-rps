@@ -7,27 +7,35 @@
     <title>Rock, Paper, Scissors Game</title>
 </head>
 <body>
-    <script>
-
-        let possibleMoves = ["Rock", "Paper", "Scissors"];
-        let playerScore = 0;
+<button>
+Are you ready to play Rock, Paper, Scissors?
+   <script>
+		const button = document.querySelector('button');
+		button.onclick = function game() {
+  	let playerSelection = prompt('What do you choose: Paper, Rock, or Scissors?');
+  	}
+    
+    let possibleMoves = ["Rock", "Paper", "Scissors"];
+        
+    function computerPlay() {
+         return possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
+        }  
+    
+    let computerSelection = computerPlay();
+    
+        
+      /*let playerScore = 0;
         let computerScore = 0;
-
         function game() {
-
             let round;
-
             playerScore = 0;
             computerScore = 0;
-
             for (round = 1); {
                 let playerMove = prompt("Type in one: Rock, Paper, or Scissors.");
                 let computerMove = computerPlay();
                 playRound(playerMove, computerMove);
-
             }
         }
-
         if (playerScore > computerScore) {
             alert("You win!");
         } else if (playerScore < computerScore) {
@@ -35,14 +43,12 @@
         } else {
             alert("It's a tie.");
         }
+        */
 
-
-        function computerPlay() {
-            return possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
-
-        }
-
-
+        
+       
     </script>
+    </button>
+
 </body>
 </html>
