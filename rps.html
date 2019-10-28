@@ -16,14 +16,19 @@ Click here to play Rock, Paper, Scissors!
 		const button = document.querySelector('button');
 		button.onclick = function game() {
     
-  
-    
-    
-  	let playerSelection = prompt('What do you choose: Rock, Paper, or Scissors?');
-    playerSelection.toUpperCase();
-  	
+  	let playerScore = 0;
+    let computerScore = 0;
     let possibleMoves = ["ROCK", "PAPER", "SCISSORS"];
-   
+    
+  
+       
+    function playRound() {  
+    let playerSelection = prompt('What do you choose: Rock, Paper, or Scissors?').toUpperCase();
+    if(!(/ROCK|PAPER|SCISSORS/.test(playerSelection))) {
+    alert('Please enter a correct choice'); 
+    } else {
+    
+  	
         
     function computerPlay() {
          return possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
@@ -32,33 +37,39 @@ Click here to play Rock, Paper, Scissors!
         
     if((playerSelection == "ROCK" && computerSelection == "SCISSORS") || (playerSelection == "PAPER" && computerSelection == "ROCK") || (playerSelection == "SCISSORS" && computerSelection == "PAPER")) {
     alert(playerSelection + ' beats ' + computerSelection + ', you Win!');
-    }  else if((playerSelection == "ROCK" && computerSelection == "PAPER") || (playerSelection == "PAPER" && computerSelection == "SCISSORS") || (playerSelection == "SCISSORS" && computerSelection == "ROCK")) {
-    alert('Sorry,' + playerSelection + ' does not beat ' + computerSelection + ', you Lose');
+    playerScore ++;
+    } else if((playerSelection == "ROCK" && computerSelection == "PAPER") || (playerSelection == "PAPER" && computerSelection == "SCISSORS") || (playerSelection == "SCISSORS" && computerSelection == "ROCK")) {
+    alert('Sorry,' + playerSelection + ' does not beat ' + computerSelection + ', you lose');
+    computerScore ++;
     } else {
     alert('You chose ' + playerSelection + ' and the computer chose ' + computerSelection + ', it\'s a tie. Try again!');
-    }   
+    }
+    } 
+    }
      
-    }    
-      /*let playerScore = 0;
-        let computerScore = 0;
-        function game() {
-            let round;
-            playerScore = 0;
-            computerScore = 0;
-            for (round = 1); {
-                let playerMove = prompt("Type in one: Rock, Paper, or Scissors.");
-                let computerMove = computerPlay();
-                playRound(playerMove, computerMove);
-            }
-        }
-        if (playerScore > computerScore) {
-            alert("You win!");
-        } else if (playerScore < computerScore) {
-            alert("You lose!");
-        } else {
-            alert("It's a tie.");
-        }
-        */
+
+    
+    playRound();
+    alert('Your Score: ' + playerScore + ' ' + 'The computer score: ' + computerScore);
+    playRound();
+    alert('Your Score: ' + playerScore + ' ' + 'The computer score: ' + computerScore);
+    playRound();
+    alert('Your Score: ' + playerScore + ' ' + 'The computer score: ' + computerScore);
+    playRound();
+    alert('Your Score: ' + playerScore + ' ' + 'The computer score: ' + computerScore);
+    playRound();
+    alert('Your Score: ' + playerScore + ' ' + 'The computer score: ' + computerScore);
+    
+    if(playerScore > computerScore) {
+    alert('Your score is: ' + playerScore + ' and the computer\'s score is: ' + computerScore + '. You Win the Game!');
+    } else if(playerScore < computerScore) {
+    alert('Your score is: ' + playerScore + ' and the computer\'s score is: ' + computerScore + '. Sorry, you lose the Game!');
+    } else {
+    alert('You have tied the computer, please try again.');
+    }
+    
+
+    }
 
         
        
